@@ -1,0 +1,23 @@
+type Subject {
+	id: ID!
+	title: String!
+	description: String
+	student: Student
+}
+extend type Query {
+	findAllSubjects: [Subject]!
+	countSubjects: Long!
+	findSubjectById(id: ID!): Subject!
+}
+extend type Mutation {
+	createSubject(title: String!, description: String, student: ID!): Subject!
+	updateSubject(id: ID!, title: String, description: String): Subject!
+	deleteSubject(id: ID!): Boolean
+}
+
+schema{
+ query: Query
+ mutation: Mutation
+}
+
+#!  indicates non nullable types

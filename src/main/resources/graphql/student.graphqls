@@ -1,0 +1,21 @@
+type Student {
+	id: ID!
+	name: String!
+	age: Int
+	department: String
+}
+# Root
+type Query {
+	findAllStudents: [Student]!
+	countStudents: Long!
+}
+# Root
+type Mutation {
+	createStudent(name: String!, age: Int!, department: String): Student!
+}
+
+schema{
+ query: Query
+ mutation: Mutation
+}
+
